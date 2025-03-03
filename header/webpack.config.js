@@ -5,6 +5,9 @@ export default {
     mode: "development",
     devServer: {
         port: 3001,
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+        },
     },
     output: {
         publicPath: "http://localhost:3001/",
@@ -31,12 +34,12 @@ export default {
             name: "header",
             filename: "remoteEntry.js",
             exposes: {
-                "./Header": "./src/Header",
+                "./Header": "./src/Header.js",
             },
-            shared: {
-                react: { singleton: true },
-                "react-dom": { singleton: true },
-            },
+            // shared: {
+            //     react: { singleton: true, requiredVersion: "auto" },
+            //     "react-dom": { singleton: true, requiredVersion: "auto" },
+            // },
         }),
         new HtmlWebpackPlugin({
             template: "./public/index.html",

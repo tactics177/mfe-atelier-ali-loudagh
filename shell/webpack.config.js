@@ -2,6 +2,7 @@ import { ModuleFederationPlugin } from '@module-federation/enhanced/webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
+    entry: './src/index.js',
     mode: "development",
     devServer: {
         port: 3000,
@@ -32,10 +33,10 @@ export default {
             remotes: {
                 header: "header@http://localhost:3001/remoteEntry.js",
             },
-            shared: {
-                react: { singleton: true },
-                "react-dom": { singleton: true },
-            },
+            // shared: {
+            //     react: { singleton: true, requiredVersion: "auto" },
+            //     "react-dom": { singleton: true, requiredVersion: "auto" },
+            // },
         }),
         new HtmlWebpackPlugin({
             template: "./public/index.html",

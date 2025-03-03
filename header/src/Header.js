@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const Header = () => {
-  return <h2>this is micro frontend Header</h2>;
-};
+const Header = () => (
+  <header>
+    <h1>This is the Header Component</h1>
+  </header>
+);
 
 export default Header;
